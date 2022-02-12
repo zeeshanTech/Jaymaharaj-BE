@@ -3,18 +3,13 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/Jaymaharaj-BE
-permissions:
-- object: /
-   pattern: "**"
-   owner: ubuntu
-   group: ubuntu
 hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: ubuntu
   ApplicationStop:
     - location: scripts/application_stop.sh
+      timeout: 300
+      runas: ubuntu
+  BeforeInstall:
+    - location: scripts/before_install.sh
       timeout: 300
       runas: ubuntu
   ApplicationStart:
