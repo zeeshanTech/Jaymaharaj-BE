@@ -1,4 +1,3 @@
 #!/bin/bash
-#Stopping existing node servers
-echo "Stopping any existing node servers"
-sudo killall node
+
+ps -ef | grep node | grep -v grep | awk '{print $2}' | xargs kill
